@@ -1,21 +1,22 @@
-import kotlinx.serialization.Serializable
-import kotlinx.serialization.encodeToString
-import kotlinx.serialization.json.Json
+package example
 
-@Serializable
-private data class Message(
-    val topic: String,
-    val content: String,
-)
-
-private val PrettyPrintJson = Json {
-    prettyPrint = true
+object Object {
+    val field = "A"
 }
 
-fun main() {
-    val message = Message(
-        topic = "Kotlin/Native",
-        content = "Hello!"
-    )
-    println(PrettyPrintJson.encodeToString(message))
+class Clazz {
+    fun memberFunction(p: Int): ULong = 42UL
 }
+
+fun add(a: Int, b:Int): Int {
+    return a + b;
+}
+
+fun forIntegers(b: Byte, s: Short, i: UInt, l: Long) { }
+fun forFloats(f: Float, d: Double) { }
+
+fun strings(str: String) : String? {
+    return "That is '$str' from C"
+}
+
+val globalString = "A global String"
